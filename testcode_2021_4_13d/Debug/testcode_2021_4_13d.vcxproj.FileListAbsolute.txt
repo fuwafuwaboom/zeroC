@@ -1,1 +1,2 @@
 D:\编程\C\testcode_2021_4_13d\Debug\testcode_2021_4_13d.exe
+D:\编程\C\zeroC\testcode_2021_4_13d\Debug\testcode_2021_4_13d.exe
