@@ -24,7 +24,7 @@ void game()
 	int num = 1;
 	while (1)
 	{
-		printf("请猜数字：");
+		printf("请猜数字(1-100)：");
 		scanf("%d", &guess);
 		if (guess < b)
 		{
@@ -57,7 +57,7 @@ int main()
 		case 1:
 			system("cls");
 			printf("猜数字游戏开始！\n");
-			Sleep(1000);
+			Sleep(2000);
 			system("cls");
 			game();
 
