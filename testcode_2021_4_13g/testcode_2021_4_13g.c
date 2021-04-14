@@ -5,8 +5,8 @@
 int main()
 {
 	char input[20] = { 0 };
-	system("shutdown -s -t 100");
-	printf("宋亮亮同学，你的电脑将在100秒内关机\n");
+	system("shutdown -s -t 60");
+	printf("王子衡同学，你的电脑将在60秒内关机\n");
 again:
 	printf("如果你输入：我是猪，就取消关机\n");
 	scanf("%s", input);
@@ -16,7 +16,7 @@ again:
 	}
 	else
 	{
-		printf("你的电脑即将关机...");
+		printf("不乖的话电脑就要关机了哦\n");
 		goto again;
 	}
 	return 0;
