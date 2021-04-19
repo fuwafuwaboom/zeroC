@@ -1,0 +1,2 @@
+﻿  add.c
+D:\编程\C\zeroC\testcode_2021_4_19d\add.c : fatal error C1052: 程序数据库文件“D:\编程\C\zeroC\testcode_2021_4_19d\Debug\testcode_2021_4_19d.pdb”由带 /DEBUG:fastlink 的链接器生成；编译器无法更新此类 PDB 文件；请删除它或使用 /Fd 来指定不同的 PDB 文件名
