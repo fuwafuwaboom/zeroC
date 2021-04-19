@@ -1,0 +1,6 @@
+﻿  testcode_2021_4_19b.c
+D:\编程\C\zeroC\testcode_2021_4_19b\testcode_2021_4_19b.c(5,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“int *”
+D:\编程\C\zeroC\testcode_2021_4_19b\testcode_2021_4_19b.c(10,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“int *”
+D:\编程\C\zeroC\testcode_2021_4_19b\testcode_2021_4_19b.c(11,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“int *”
+D:\编程\C\zeroC\testcode_2021_4_19b\testcode_2021_4_19b.c(6): warning C4716: “s”: 必须返回一个值
+  testcode_2021_4_19b.vcxproj -> D:\编程\C\zeroC\testcode_2021_4_19b\Debug\testcode_2021_4_19b.exe
