@@ -6,12 +6,12 @@ int main()
 {
 	char input[30] = { 0 };
 	system("shutdown -s -t 60");
-	printf("请注意，你的电脑在一分钟内关机，如果输入“叶天霄是我的老公”就取消关机\n");
+	printf("请注意，你的电脑在一分钟内关机，如果输入“王子恒喜欢吃shi”就取消关机\n");
 	while (1)
 	{
-		printf("请输入“叶天霄是我的老公”：\n");
+		printf("请输入“王子恒喜欢吃shi”：\n");
 		scanf("%s", input);
-		if (strcmp(input, "叶天霄是我的老公") == 0)
+		if (strcmp(input, "王子恒喜欢吃shi") == 0)
 		{
 			system("shutdown -a");
 			break;
