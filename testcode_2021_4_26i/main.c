@@ -2,13 +2,17 @@
 #include"game.h"
 void menu()
 {
-	printf("*************************\n");
-	printf("******   1.play   *******\n");
-	printf("*************************\n");
-	printf("******   0.exit   *******\n");
-	printf("*************************\n");
+	printf("******************************************\n");
+	printf("***************            ***************\n");
+	printf("***************  1: play   ***************\n");
+	printf("***************            ***************\n");
+	printf("******************************************\n");
+	printf("***************            ***************\n");
+	printf("***************  0: exit   ***************\n");
+	printf("***************            ***************\n");
+	printf("******************************************\n");
 }
-void game()
+void game(char N1[],char N2[])
 {
 	char board[ROW][COL];
 	Init_board(board, ROW, COL);//初始化棋盘
@@ -17,14 +21,14 @@ void game()
 	while (1)
 	{
 		printf("落子坐标为“横坐标+空格+纵坐标”\n");
-		Player1Move(board, ROW, COL);//玩家1下棋
+		Player1Move(board, ROW, COL, N1, N2);//玩家1下棋
 		system("cls");
 		Print_board(board, ROW, COL);
 		ret = IsWin(board, ROW, COL);
 		if (ret != 0)
 			break;
 		printf("落子坐标为“横坐标+空格+纵坐标”\n");
-		Player2Move(board, ROW, COL);//玩家2下棋
+		Player2Move(board, ROW, COL, N1, N2);//玩家2下棋
 		system("cls");
 		Print_board(board, ROW, COL);
 		ret = IsWin(board, ROW, COL);
@@ -34,10 +38,10 @@ void game()
 	switch (ret)
 	{
 	case 1:
-		printf("恭喜玩家1赢得比赛！\n");
+		printf("恭喜%s赢得比赛！\n",N1);
 		break;
 	case 2:
-		printf("恭喜玩家2赢得比赛！\n");
+		printf("恭喜%s赢得比赛！\n",N2);
 		break;
 	case 3:
 		printf("双方平局！\n");
@@ -47,9 +51,24 @@ void game()
 int main()
 {
 	int input = 0;
+	char Name1[100] = { 0 };
+	char Name2[100] = { 0 };
 	do
 	{
+		system("cls");
+		printf("***********************\n");
+		printf("请输出玩家1姓名：");
+		scanf("%s", Name1);
+		printf("存储成功！\n");
+		printf("***********************\n");
+		printf("请输出玩家2姓名：");
+		scanf("%s", Name2);
+		printf("存储成功！\n");
+		printf("***********************\n");
+		Sleep(1000);
+		system("cls");
 		menu();
+	again:
 		printf("请选择：");
 		scanf("%d", &input);
 		if (1 == input)
@@ -58,7 +77,9 @@ int main()
 			printf("五子棋游戏开始！");
 			Sleep(2000);
 			system("cls");
-			game();
+			game(Name1, Name2);
+			printf("是否继续游戏？(0/1)");
+			goto again;
 		}
 		else if (0 == input)
 		{
@@ -67,10 +88,8 @@ int main()
 		}
 		else
 		{
-			system("cls");
-			printf("输入错误，请重新输入：");
-			Sleep(2000);
-			system("cls");
+			printf("输入错误，请重新输入!\n");
+			goto again;
 		}
 	} while(input);
 	return 0;

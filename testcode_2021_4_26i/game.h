@@ -10,8 +10,8 @@
 void Init_board(char board[ROW][COL], int row, int col);
 void Print_board(char board[ROW][COL], int row, int col);
 //玩家1下棋
-void Player1Move(char board[ROW][COL], int row, int col);
+void Player1Move(char board[ROW][COL], int row, int col,char N1[],char N2[]);
 //玩家2下棋
-void P2ayer1Move(char board[ROW][COL], int row, int col);
+void P2ayer1Move(char board[ROW][COL], int row, int col, char N1[],char N2[]);
 //判断游戏状态
 int IsWin(char board[ROW][COL], int row, int col);

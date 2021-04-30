@@ -55,19 +55,19 @@ void Print_board(char board[ROW][COL], int row, int col)
 	}
 
 }
-void Player1Move(char board[ROW][COL], int row, int col)
+void Player1Move(char board[ROW][COL], int row, int col, char N1[], char N2[])
 {
 	int x = 0;
 	int y = 0;
 	while (1)
 	{
-		printf("玩家1走（输入落子坐标）：");
+		printf("请 %s 走（输入落子坐标）：",N1);
 		scanf("%d %d", &x, &y);
 		if (x >= 1 && x <= row && y >= 1 && y <= col)
 		{
 			if (board[x - 1][y - 1] == ' ')
 			{
-				board[x - 1][y - 1] = '*';
+				board[x - 1][y - 1] = 'x';
 				break;
 			}
 			else
@@ -82,19 +82,19 @@ void Player1Move(char board[ROW][COL], int row, int col)
 	}
 
 }
-void Player2Move(char board[ROW][COL], int row, int col)
+void Player2Move(char board[ROW][COL], int row, int col, char N1[], char N2[])
 {
 	int x = 0;
 	int y = 0;
 	while (1)
 	{
-		printf("玩家2走（输入落子坐标）：");
+		printf("请 %s 走（输入落子坐标）：",N2);
 		scanf("%d %d", &x, &y);
 		if (x >= 1 && x <= row && y >= 1 && y <= col)
 		{
 			if (board[x - 1][y - 1] == ' ')
 			{
-				board[x - 1][y - 1] = '#';
+				board[x - 1][y - 1] = 'o';
 				break;
 			}
 			else
@@ -119,7 +119,7 @@ int IsWin(char board[ROW][COL], int row, int col)
 		int num2 = 0;
 		for (j = 0; j < col; j++)
 		{
-			if (board[i][j] == board[i][j + 1] && board[i][j] == '*')
+			if (board[i][j] == board[i][j + 1] && board[i][j] == 'x')
 			{
 				num1++;
 				if (num1 == 4)
@@ -131,7 +131,7 @@ int IsWin(char board[ROW][COL], int row, int col)
 			{
 				num1 = 0;
 			}
-			if (board[i][j] == board[i][j + 1] && board[i][j] == '#')
+			if (board[i][j] == board[i][j + 1] && board[i][j] == 'o')
 			{
 				num2++;
 				if (num2 == 4)
@@ -151,7 +151,7 @@ int IsWin(char board[ROW][COL], int row, int col)
 		int num2 = 0;
 		for (i = 0; i < row; i++)
 		{
-			if (board[i][j] == board[i+1][j] && board[i][j] == '*')
+			if (board[i][j] == board[i+1][j] && board[i][j] == 'x')
 			{
 				num1++;
 				if (num1 == 4)
@@ -163,7 +163,7 @@ int IsWin(char board[ROW][COL], int row, int col)
 			{
 				num1 = 0;
 			}
-			if (board[i][j] == board[i+1][j] && board[i][j] == '#')
+			if (board[i][j] == board[i+1][j] && board[i][j] == 'o')
 			{
 				num2++;
 				if (num2 == 4)
@@ -178,13 +178,13 @@ int IsWin(char board[ROW][COL], int row, int col)
 		}
 	}
 	int m = 0;//判断起点为5,0-0,0对角线是否五子连珠
-	for (m = 5; m >= 0; m--)
+	for (m = row-5; m >= 0; m--)
 	{
 		int num1 = 0;
 		int num2 = 0;
 		for (i = m, j = 0; i < row; i++,j++)
 		{
-			if (board[i][j] == board[i + 1][j + 1] && board[i][j] == '*')
+			if (board[i][j] == board[i + 1][j + 1] && board[i][j] == 'x')
 			{
 				num1++;
 				if (num1 == 4)
@@ -196,7 +196,7 @@ int IsWin(char board[ROW][COL], int row, int col)
 			{
 				num1 = 0;
 			}
-			if (board[i][j] == board[i + 1][j + 1] && board[i][j] == '#')
+			if (board[i][j] == board[i + 1][j + 1] && board[i][j] == 'o')
 			{
 				num2++;
 				if (num2 == 4)
@@ -211,13 +211,13 @@ int IsWin(char board[ROW][COL], int row, int col)
 		}
 	}
 	int n = 0;//判断起点为0,1-0,5对角线是否五子连珠
-	for (n = 1; n<=5 ; n++)
+	for (n = 1; n<=(col-5) ; n++)
 	{
 		int num1 = 0;
 		int num2 = 0;
 		for (i = 0, j = n; j < col; j++, i++)
 		{
-			if (board[i][j] == board[i + 1][j + 1] && board[i][j] == '*')
+			if (board[i][j] == board[i + 1][j + 1] && board[i][j] == 'x')
 			{
 				num1++;
 				if (num1 == 4)
@@ -229,7 +229,7 @@ int IsWin(char board[ROW][COL], int row, int col)
 			{
 				num1 = 0;
 			}
-			if (board[i][j] == board[i + 1][j + 1] && board[i][j] == '#')
+			if (board[i][j] == board[i + 1][j + 1] && board[i][j] == 'o')
 			{
 				num2++;
 				if (num2 == 4)
@@ -244,13 +244,13 @@ int IsWin(char board[ROW][COL], int row, int col)
 		}
 	}
 	int p = 0;//判断起点为4，0-9，0的反对角线是否五子连珠
-	for (p = 4; p <= 9; p++)
+	for (p = row-6; p <= (row-1); p++)
 	{
 		int num1 = 0;
 		int num2 = 0;
 		for (i = p, j = 0; i >= 0; i--, j++)
 		{
-			if (board[i][j] == board[i - 1][j + 1] && board[i][j] == '*')
+			if (board[i][j] == board[i - 1][j + 1] && board[i][j] == 'x')
 			{
 				num1++;
 				if (num1 == 4)
@@ -262,7 +262,7 @@ int IsWin(char board[ROW][COL], int row, int col)
 			{
 				num1 = 0;
 			}
-			if (board[i][j] == board[i - 1][j + 1] && board[i][j] == '#')
+			if (board[i][j] == board[i - 1][j + 1] && board[i][j] == 'o')
 			{
 				num2++;
 				if (num2 == 4)
@@ -277,13 +277,13 @@ int IsWin(char board[ROW][COL], int row, int col)
 		}
 	}
 	int q = 0;//判断起点为9，1-9，5的反对角线是否五子连珠
-	for (q = 1; q <= 5; q++)
+	for (q = 1; q <= (col-5); q++)
 	{
 		int num1 = 0;
 		int num2 = 0;
-		for (i = 9, j = q; j < col; i--,j++)
+		for (i = row-1, j = q; j < col; i--,j++)
 		{
-			if (board[i][j] == board[i - 1][j + 1] && board[i][j] == '*')
+			if (board[i][j] == board[i - 1][j + 1] && board[i][j] == 'x')
 			{
 				num1++;
 				if (num1 == 4)
@@ -295,7 +295,7 @@ int IsWin(char board[ROW][COL], int row, int col)
 			{
 				num1 = 0;
 			}
-			if (board[i][j] == board[i - 1][j + 1] && board[i][j] == '#')
+			if (board[i][j] == board[i - 1][j + 1] && board[i][j] == 'o')
 			{
 				num2++;
 				if (num2 == 4)
