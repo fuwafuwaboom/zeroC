@@ -1,0 +1,4 @@
+﻿  main.c
+D:\编程\C\zeroC\testcode_2021_4_28a\main.c(19,30): warning C4020: “InitBoard”: 实参太多
+D:\编程\C\zeroC\testcode_2021_4_28a\main.c(20,30): warning C4020: “InitBoard”: 实参太多
+  testcode_2021_4_28a.vcxproj -> D:\编程\C\zeroC\testcode_2021_4_28a\Debug\testcode_2021_4_28a.exe
