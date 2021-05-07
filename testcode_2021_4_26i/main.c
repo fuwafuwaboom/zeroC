@@ -38,10 +38,32 @@ void game(char N1[],char N2[])
 	switch (ret)
 	{
 	case 1:
-		printf("恭喜%s赢得比赛！\n",N1);
+		system("cls");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("                                  恭喜%s赢得比赛！\n", N1);
 		break;
 	case 2:
-		printf("恭喜%s赢得比赛！\n",N2);
+		system("cls");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("                                  恭喜%s赢得比赛！\n", N2);
 		break;
 	case 3:
 		printf("双方平局！\n");
@@ -78,7 +100,19 @@ int main()
 			Sleep(2000);
 			system("cls");
 			game(Name1, Name2);
-			printf("是否继续游戏？(0/1)");
+			Sleep(2000);
+			system("cls");
+			printf("\n");
+			printf("\n");
+			printf("\n");
+			printf("\n");
+			printf("\n");
+			printf("\n");
+			printf("\n");
+			printf("\n");
+			printf("\n");
+			printf("\n");
+			printf("                                  是否继续游戏？(0/1)");
 			goto again;
 		}
 		else if (0 == input)

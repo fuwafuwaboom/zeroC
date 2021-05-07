@@ -23,7 +23,7 @@ void Print_board(char board[ROW][COL], int row, int col)
 			printf(" ");
 			for (m = 0; m < col; m++)
 			{
-				printf("  %d ", m + 1);
+				printf(" %2d ", m + 1);
 			}
 			printf("\n");
 		}
