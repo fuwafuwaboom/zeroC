@@ -1,0 +1,8 @@
+﻿  main.c
+D:\编程\C\zeroC\testcode_2021_4_26i\main.c(31,14): warning C4013: “Player2Move”未定义；假设外部返回 int
+  正在生成代码
+  1 of 14 functions ( 7.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  testcode_2021_4_26i.vcxproj -> D:\编程\C\zeroC\testcode_2021_4_26i\x64\Release\testcode_2021_4_26i.exe

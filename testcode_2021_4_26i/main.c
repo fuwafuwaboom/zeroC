@@ -77,21 +77,16 @@ int main()
 	char Name2[100] = { 0 };
 	do
 	{
-		system("cls");
-		printf("***********************\n");
-		printf("请输出玩家1姓名：");
-		scanf("%s", Name1);
-		printf("存储成功！\n");
-		printf("***********************\n");
-		printf("请输出玩家2姓名：");
-		scanf("%s", Name2);
-		printf("存储成功！\n");
-		printf("***********************\n");
-		Sleep(1000);
-		system("cls");
 		menu();
+		printf("\n");
+		printf("      请输出玩家1姓名：");
+		scanf("%s", Name1);
+		printf("----------------------------------\n");
+		printf("      请输出玩家2姓名：");
+		scanf("%s", Name2);
+		printf("----------------------------------\n");
 	again:
-		printf("请选择：");
+		printf("          请选择：");
 		scanf("%d", &input);
 		if (1 == input)
 		{
