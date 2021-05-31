@@ -1,0 +1,3 @@
+﻿  打印任意整数二进制中1的个数.c
+D:\编程\C\zeroC\testcode_2021_5_30c\打印任意整数二进制中1的个数.c(16,10): warning C4098: “method1”:“void”函数返回值
+  testcode_2021_5_30c.vcxproj -> D:\编程\C\zeroC\testcode_2021_5_30c\Debug\testcode_2021_5_30c.exe
