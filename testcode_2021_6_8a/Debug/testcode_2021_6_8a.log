@@ -1,0 +1,4 @@
+﻿  初阶指针.c
+D:\编程\C\zeroC\testcode_2021_6_8a\初阶指针.c(9,1): warning C4133: “初始化”: 从“int *”到“char *”的类型不兼容
+D:\编程\C\zeroC\testcode_2021_6_8a\初阶指针.c(18,1): warning C4133: “初始化”: 从“int *”到“char *”的类型不兼容
+  testcode_2021_6_8a.vcxproj -> D:\编程\C\zeroC\testcode_2021_6_8a\Debug\testcode_2021_6_8a.exe
