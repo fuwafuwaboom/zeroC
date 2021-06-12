@@ -1,0 +1,4 @@
+﻿  结构体的基础知识.c
+D:\编程\C\zeroC\testcode_2021_6_12d\结构体的基础知识.c(25,1): warning C4305: “初始化”: 从“unsigned long”到“char”截断
+D:\编程\C\zeroC\testcode_2021_6_12d\结构体的基础知识.c(24,13): warning C4101: “ss”: 未引用的局部变量
+  testcode_2021_6_12d.vcxproj -> D:\编程\C\zeroC\testcode_2021_6_12d\Debug\testcode_2021_6_12d.exe
