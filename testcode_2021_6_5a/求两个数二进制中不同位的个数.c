@@ -15,3 +15,26 @@ int main()
 	printf("%d\n", sum);
 	return 0;
 }
+
+void method2(int n)
+{
+	int count = 0;
+	int i = 0;
+	while (n)
+	{
+		n &= (n - 1);
+		count++;
+	}
+	printf("%d\n", count);
+	return;
+}
+void NewMethod()
+{
+	//第二种思路：先异或 再统计结果中1的个数 就是不同位的个数
+	int m = 0;
+	int n = 0;
+	scanf("%d%d", &m, &n);
+	int ret = m ^ n;
+	method2(ret);
+	return 0;
+}
