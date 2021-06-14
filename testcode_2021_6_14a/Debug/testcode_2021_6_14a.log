@@ -1,0 +1,8 @@
+﻿  my_strcpy.c
+D:\编程\C\zeroC\testcode_2021_6_14a\my_strcpy.c(96,10): warning C4098: “const1”:“void”函数返回值
+D:\编程\C\zeroC\testcode_2021_6_14a\my_strcpy.c(91,1): warning C4090: “初始化”: 不同的“const”限定符
+D:\编程\C\zeroC\testcode_2021_6_14a\my_strcpy.c(107,10): warning C4098: “const2”:“void”函数返回值
+D:\编程\C\zeroC\testcode_2021_6_14a\my_strcpy.c(115,10): warning C4098: “const3”:“void”函数返回值
+D:\编程\C\zeroC\testcode_2021_6_14a\my_strcpy.c(113,1): warning C4090: “初始化”: 不同的“const”限定符
+D:\编程\C\zeroC\testcode_2021_6_14a\my_strcpy.c(123,10): warning C4098: “const4”:“void”函数返回值
+  testcode_2021_6_14a.vcxproj -> D:\编程\C\zeroC\testcode_2021_6_14a\Debug\testcode_2021_6_14a.exe
