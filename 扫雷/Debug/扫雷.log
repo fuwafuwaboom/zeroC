@@ -1,7 +1,2 @@
 ﻿  game.c
-D:\编程\C\zeroC\扫雷\game.c(48,9): warning C4013: “pritnf”未定义；假设外部返回 int
-  main.c
-D:\编程\C\zeroC\扫雷\main.c(32,26): warning C4013: “time”未定义；假设外部返回 int
-  正在生成代码...
-game.obj : error LNK2019: 无法解析的外部符号 _pritnf，函数 _DisplayBoard 中引用了该符号
-D:\编程\C\zeroC\扫雷\Debug\扫雷.exe : fatal error LNK1120: 1 个无法解析的外部命令
+  扫雷.vcxproj -> D:\编程\C\zeroC\扫雷\Debug\扫雷.exe

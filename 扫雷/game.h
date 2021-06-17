@@ -2,7 +2,9 @@
 #include<stdio.h>
 #include<windows.h>
 #include<stdlib.h>
+#include<time.h>
 
+#define EASY_COUNT 10
 #define ROW 9
 #define COL 9
 #define ROWS ROW+2
