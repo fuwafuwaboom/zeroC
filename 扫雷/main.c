@@ -7,7 +7,7 @@ void game()
 	char show[ROWS][COLS] = { 0 };
 	//初始化两个棋盘
 	InitBoard(mine, ROWS, COLS, '0');
-	InitBoard(show, ROWS, COLS, ' ');
+	InitBoard(show, ROWS, COLS, '*');
 
 	//打印初始棋盘
 	DisplayBoard(show, ROW, COL);

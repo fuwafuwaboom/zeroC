@@ -84,7 +84,7 @@ int IsWin(char show[ROWS][COLS], int row, int col)
 	{
 		for (j = 1; j <= col; j++)
 		{
-			if (show[i][j] == ' ')
+			if (show[i][j] == '*')
 			{
 				count++;
 			}
@@ -117,13 +117,14 @@ static int GetMineCount(char mine[ROWS][COLS], int x, int y)
 
 void Extend(char mine[ROWS][COLS],char show[ROWS][COLS], int x, int y)
 {
-	if (show[x][y] == ' '&& x >= 1 && x <= ROW && y >= 1 && y <= COL)
+	if (show[x][y] == '*'&& x >= 1 && x <= ROW && y >= 1 && y <= COL)
 	{
 		//不是雷 - 统计周围雷个数
 		int count = GetMineCount(mine, x, y);
 		show[x][y] = count + '0';//count是数字,需要转换成字符，0的ASCII码值是48
 		if (show[x][y] == '0')
 		{
+			show[x][y] = ' ';
 			Extend(mine, show, x - 1, y - 1);
 			Extend(mine, show, x, y - 1);
 			Extend(mine, show, x + 1, y - 1);
