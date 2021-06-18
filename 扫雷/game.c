@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include"game.h"
-int win = 0;//踩点数
+
 //菜单函数的实现
 void menu()
 {   
@@ -35,7 +35,7 @@ void DisplayBoard(char board[ROWS][COLS], int row, int col)
 	int i = 0;
 	int j = 0;
 
-	printf("游戏规则：\n输入坐标进行扫雷\n给认为是雷的坐标做上标记\n");
+	printf("游戏规则：\n输入坐标进行扫雷\n坐标格式：横坐标+空格+纵坐标 回车确定\n\n");
 	for (i = 0; i <= col; i++)//打印列号
 	{
 		printf("%d   ", i);
@@ -74,18 +74,35 @@ void SetMine(char mine[ROWS][COLS], int row, int col)
 	}
 }
 
+//判断输赢
+int IsWin(char show[ROWS][COLS], int row, int col)
+{
+	int i = 0;
+	int j = 0;
+	int count = 0;
+	for (i = 1; i <= row; i++)
+	{
+		for (j = 1; j <= col; j++)
+		{
+			if (show[i][j] == ' ')
+			{
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
 //排查周围雷的个数
 static int GetMineCount(char mine[ROWS][COLS], int x, int y)
 {
+	//法一
 	return mine[x - 1][y + 1] + mine[x][y + 1] + mine[x + 1][y + 1] +
 		   mine[x - 1][y]                      + mine[x + 1][y] +
 		   mine[x - 1][y - 1] + mine[x][y - 1] + mine[x + 1][y - 1]
 		   - 8 * '0';
-}
-
-static int GetMineCount1(char mine[ROWS][COLS], int x, int y)
-{
-	int count = 0;
+	//法二
+	/*int count = 0;
 	int i = 0;
 	int j = 0;
 	for (i = -1; i <= 1; i++)
@@ -95,7 +112,7 @@ static int GetMineCount1(char mine[ROWS][COLS], int x, int y)
 			count += (mine[x + i][y + j] - '0');
 		}
 	}
-	return count;
+	return count;*/
 }
 
 void Extend(char mine[ROWS][COLS],char show[ROWS][COLS], int x, int y)
@@ -105,7 +122,6 @@ void Extend(char mine[ROWS][COLS],char show[ROWS][COLS], int x, int y)
 		//不是雷 - 统计周围雷个数
 		int count = GetMineCount(mine, x, y);
 		show[x][y] = count + '0';//count是数字,需要转换成字符，0的ASCII码值是48
-		win++;
 		if (show[x][y] == '0')
 		{
 			Extend(mine, show, x - 1, y - 1);
@@ -121,6 +137,72 @@ void Extend(char mine[ROWS][COLS],char show[ROWS][COLS], int x, int y)
 	return;
 }
 
+//失败动画
+void anime_fail()
+{
+	char arr1[] = "|  G  A  M  E  O  V  E  R  |";
+	char arr2[] = "                            ";
+	int left = 0;
+	int right = strlen(arr1) - 1;
+	while (left <= right)
+	{
+		arr2[left] = arr1[left];
+		arr2[right] = arr1[right];
+		printf("\n\n\n\n");
+		printf("      |--------------------------|\n");
+		printf("      |                          |\n");
+		printf("      %s\n", arr2);
+		printf("      |                          |\n");
+		printf("      |--------------------------|\n");
+		printf("\n\n\n\n");
+		Sleep(50);
+		system("cls");
+		left++;
+		right--;
+	}
+	printf("\n\n\n\n");
+	printf("      |--------------------------|\n");
+	printf("      |                          |\n");
+	printf("      %s\n", arr2);
+	printf("      |                          |\n");
+	printf("      |--------------------------|\n");
+	printf("\n\n\n\n");
+	return 0;
+}
+
+//成功动画
+void anime_success()
+{
+	char arr1[] = "|     恭喜你扫雷成功！     |";
+	char arr2[] = "                            ";
+	int left = 0;
+	int right = strlen(arr1) - 1;
+	while (left <= right)
+	{
+		arr2[left] = arr1[left];
+		arr2[right] = arr1[right];
+		printf("\n\n\n\n");
+		printf("      |--------------------------|\n");
+		printf("      |                          |\n");
+		printf("      %s\n", arr2);
+		printf("      |                          |\n");
+		printf("      |--------------------------|\n");
+		printf("\n\n\n\n");
+		Sleep(50);
+		system("cls");
+		left++;
+		right--;
+	}
+	printf("\n\n\n\n");
+	printf("      |--------------------------|\n");
+	printf("      |                          |\n");
+	printf("      %s\n", arr2);
+	printf("      |                          |\n");
+	printf("      |--------------------------|\n");
+	printf("\n\n\n\n");
+	return 0;
+}
+
 //排查雷的函数实现
 void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 {
@@ -132,65 +214,39 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 	int x = 0;
 	int y = 0;
 	
-	while (win < row * col - EASY_COUNT)
+	while (1)
 	{
-		int sign = 0;
-		printf("踩点/标记？(1/2):");
-		scanf("%d", &sign);
-		if (sign == 1)
+		printf("\n       请输入坐标：");
+		scanf("%d%d", &x, &y);
+		if (x >= 1 && x <= row && y >= 1 && y <= col)//要限制坐标的范围
 		{
-			printf("\n       请输入坐标：");
-			scanf("%d%d", &x, &y);
-			if (x >= 1 && x <= row && y >= 1 && y <= col)//要限制坐标的范围
+			if (mine[x][y] == '1')
 			{
-				if (mine[x][y] == '1')
+				system("cls");
+				printf("\n\n\n\n");
+				printf("         很遗憾，你不慎踩雷！\n");
+				Sleep(1000);
+				system("cls");
+				anime_fail();
+				Sleep(2000);
+				goto over;
+			}
+			else
+			{
+				Extend(mine, show, x, y);
+				DisplayBoard(show, row, col);
+				if (IsWin(show, row, col) == 10)
 				{
-					printf("很遗憾，你不慎踩雷！\n");
-					printf("\n\n\n\n");
-					printf("      |--------------------------|\n");
-					printf("      |                          |\n");
-					printf("      |    ×  GAME  OVER  ×    |\n");
-					printf("      |                          |\n");
-					printf("      |--------------------------|\n");
-					Sleep(1000);
-					system("cls");
+					anime_success();
+					Sleep(2000);
 					goto over;
 				}
-				else
-				{
-					Extend(mine, show, x, y);
-					DisplayBoard(show, row, col);
-				}
-			}
-			else
-			{
-				printf("坐标不合法，请重新输入\n");
-			}
-		}
-		else if (sign == 2)
-		{
-			printf("请输入待标记坐标：");
-			scanf("%d%d", &x, &y);
-			if (x >= 1 && x <= row && y >= 1 && y <= col)//要限制坐标的范围
-			{
-				show[x][y] = '#';
-				DisplayBoard(show, row, col);
-			}
-			else
-			{
-				printf("坐标不合法，请重新输入\n");
 			}
 		}
 		else
 		{
 			printf("坐标不合法，请重新输入\n");
 		}
-		
-	}
-	if (win == row * col - EASY_COUNT)
-	{
-		printf("恭喜你,排雷成功！");
-		DisplayBoard(show, ROW, COL);
 	}
 over:
 	return;

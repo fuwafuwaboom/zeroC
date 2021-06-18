@@ -18,8 +18,6 @@ void game()
 	//排查雷（玩家开始排雷）
 	FindMine(mine, show, ROW, COL);
 
-	//不论输赢，打印最终的图
-	DisplayBoard(mine, ROW, COL);
 }
 
 int main()
@@ -31,6 +29,7 @@ int main()
 	do
 	{
 		menu();
+     again:
 		printf("                          \n");
 		printf("      请选择：");
 		scanf("%d", &input);
@@ -47,6 +46,8 @@ int main()
 			Sleep(1000);
 			system("cls");
 			game();
+			printf("\n是否继续游戏(0/1)？\n");
+			goto again;
 			break;
 		case 0:
 			printf("\n\n\n\n");
