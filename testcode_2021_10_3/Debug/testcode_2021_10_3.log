@@ -1,0 +1,3 @@
+﻿  数组指针.c
+D:\纵深\C\zeroC\testcode_2021_10_3\数组指针.c(19,12): warning C4048: “int (*)[5]”和“int (*)[3][5]”数组的下标不同
+  testcode_2021_10_3.vcxproj -> D:\纵深\C\zeroC\testcode_2021_10_3\Debug\testcode_2021_10_3.exe
