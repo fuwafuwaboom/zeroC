@@ -1,0 +1,4 @@
+﻿  源.c
+D:\编程\C\advancedC\testcode_2021_7_19a\源.c(70,10): warning C4098: “move”:“void”函数返回值
+D:\编程\C\advancedC\testcode_2021_7_19a\源.c(78,10): warning C4098: “Q2”:“void”函数返回值
+  testcode_2021_7_19a.vcxproj -> D:\编程\C\advancedC\testcode_2021_7_19a\Debug\testcode_2021_7_19a.exe

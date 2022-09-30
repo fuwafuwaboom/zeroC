@@ -1,0 +1,5 @@
+﻿  使用C库函数qsort.c
+D:\纵深\C\advancedC\testcode_2021_11_6\使用C库函数qsort.c(13,13): warning C4273: “qsort”: dll 链接不一致
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\corecrt_search.h(60,23): message : 参见“qsort”的前一个定义
+D:\纵深\C\advancedC\testcode_2021_11_6\使用C库函数qsort.c(34,13): warning C4098: “qsort_int”:“void”函数返回值
+  testcode_2021_11_6.vcxproj -> D:\纵深\C\advancedC\testcode_2021_11_6\Debug\testcode_2021_11_6.exe
